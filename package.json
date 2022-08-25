@@ -10,7 +10,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:vscode-test-extension.helloWorld"
+    "onStartupFinished:vscode-test-extension.newTag",
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -18,8 +19,20 @@
       {
         "command": "vscode-test-extension.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "vscode-test-extension.newTag",
+        "title": "New Tag"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "vscode-test-extension.newTag",
+          "group": "z_commands"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
